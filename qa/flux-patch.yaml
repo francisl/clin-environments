@@ -41,6 +41,19 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: clin-proxy-api-meta
+spec:
+  template:
+    spec:
+      $setElementOrder/containers:
+      - name: clin-proxy-api-meta
+      containers:
+      - image: chusj/clin-proxy-api-meta-service:c08a5a67db656bad1313a446f422a1d171039aec
+        name: clin-proxy-api-meta
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
   name: clin-proxy-api-patient
 spec:
   template:
