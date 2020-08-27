@@ -1,0 +1,65 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clin-fhir-server
+spec:
+  template:
+    spec:
+      $setElementOrder/containers:
+      - name: clin-fhir-server
+      containers:
+      - image: chusj/clin-fhir-server:eea7f5c
+        name: clin-fhir-server
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clin-frontend
+spec:
+  template:
+    spec:
+      $setElementOrder/containers:
+      - name: clin-frontend
+      containers:
+      - image: chusj/clin-frontend:d12ff9e5b1a925ac2af51975e1e1f71c4e1d49fb
+        name: clin-frontend
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clin-proxy-api-gene
+spec:
+  template:
+    spec:
+      $setElementOrder/containers:
+      - name: clin-proxy-api-gene
+      containers:
+      - image: chusj/clin-proxy-api-gene-service:c08a5a67db656bad1313a446f422a1d171039aec
+        name: clin-proxy-api-gene
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clin-proxy-api-patient
+spec:
+  template:
+    spec:
+      $setElementOrder/containers:
+      - name: clin-proxy-api-patient
+      containers:
+      - image: chusj/clin-proxy-api-patient-service:c08a5a67db656bad1313a446f422a1d171039aec
+        name: clin-proxy-api-patient
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clin-proxy-api-variant
+spec:
+  template:
+    spec:
+      $setElementOrder/containers:
+      - name: clin-proxy-api-variant
+      containers:
+      - image: chusj/clin-proxy-api-variant-service:c08a5a67db656bad1313a446f422a1d171039aec
+        name: clin-proxy-api-variant
