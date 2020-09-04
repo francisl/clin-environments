@@ -41,6 +41,19 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: clin-proxy-api-hpo
+spec:
+  template:
+    spec:
+      $setElementOrder/containers:
+      - name: clin-proxy-api-hpo
+      containers:
+      - image: chusj/clin-proxy-api-hpo-service:0fae8f38ebc810cb0b6c12edde9365c04f121d02
+        name: clin-proxy-api-hpo
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
   name: clin-proxy-api-meta
 spec:
   template:
