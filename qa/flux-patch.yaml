@@ -87,5 +87,5 @@ spec:
       $setElementOrder/containers:
       - name: clin-proxy-api-variant
       containers:
-      - image: chusj/clin-proxy-api-variant-service:5d7970789c183eedb3c8206b7aebeb26a3a7ac23
+      - image: chusj/clin-proxy-api-variant-service:07a35657157a7f105735a27df4889ba8b66a9d03
         name: clin-proxy-api-variant
