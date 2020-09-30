@@ -1,0 +1,51 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: variant-etl
+  namespace: spark
+spec:
+  template:
+    spec:
+      serviceAccountName: spark
+      containers:
+      - name: variant-etl
+        image: chusj/spark:2b05281a31f7feb82716ca3b303d37a700a4bb3c
+        env:
+          - name: SPARK_CLASS
+            value: bio.ferlab.clin.etl.ImportVcf
+          - name: SPARK_JAR
+            value: s3a://spark/clin-etl-variant.jar
+          - name: SPARK_CLIENT_POD_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+        volumeMounts:
+          - name: spark-defaults
+            mountPath: /opt/spark-configs/defaults
+            readOnly: true
+          - name: variant-etl
+            mountPath: /opt/spark-configs/variant-etl
+            readOnly: true
+          - name: s3-credentials
+            mountPath: /opt/spark-configs/s3-credentials
+            readOnly: true
+        command:
+          - "/opt/client-entrypoint.sh"
+        args:
+          - s3a://clin/vcf/complete_joint_calling.vqsr.bcftools_norm_ref.vep_20191218.SeqCap_EZ_Exome_v3_capture.vcf.gz
+          - s3a://clin/variant_db 
+          - BAT1
+          - all
+      restartPolicy: Never
+      volumes:
+        - name: spark-defaults
+          configMap:
+            name: spark-defaults
+        - name: variant-etl
+          configMap:
+            name: variant-etl
+        - name: s3-credentials
+          secret:
+            secretName: s3-credentials
+  backoffLimit: 4
