@@ -1,0 +1,70 @@
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: airflow-dags
+spec:
+  accessModes:
+    - ReadOnlyMany
+  capacity:
+    storage: 512Mi
+  hostPath:
+    path: /airflow-dags/
+---
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: airflow-logs
+spec:
+  accessModes:
+    - ReadOnlyMany
+  capacity:
+    storage: 512Mi
+  hostPath:
+    path: /airflow-logs/
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: airflow-dags
+spec:
+  accessModes:
+    - ReadOnlyMany
+  resources:
+    requests:
+      storage: 512Mi
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: airflow-logs
+spec:
+  accessModes:
+    - ReadOnlyMany
+  resources:
+    requests:
+      storage: 512Mi
+---
+#Test volume required for the airflow-test-env-init.sh script.
+kind: PersistentVolume
+apiVersion: v1
+metadata:
+  name: test-volume
+spec:
+  accessModes:
+    - ReadWriteOnce
+  capacity:
+    storage: 512Mi
+  hostPath:
+    path: /airflow-dags/
+---
+kind: PersistentVolumeClaim
+apiVersion: v1
+metadata:
+  name: test-volume
+spec:
+  accessModes:
+    - ReadWriteOnce
+  resources:
+    requests:
+      storage: 512Mi

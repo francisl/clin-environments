@@ -1,0 +1,171 @@
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: postgres-airflow
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: postgres-airflow
+  template:
+    metadata:
+      labels:
+        name: postgres-airflow
+    spec:
+      restartPolicy: Always
+      containers:
+        - name: postgres
+          image: postgres:12
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 5432
+              protocol: TCP
+          volumeMounts:
+            - name: dbvol
+              mountPath: /var/lib/postgresql/data/pgdata
+              subPath: pgdata
+          env:
+            - name: POSTGRES_USER
+              value: root
+            - name: POSTGRES_PASSWORD
+              value: root
+            - name: POSTGRES_DB
+              value: airflow
+            - name: PGDATA
+              value: /var/lib/postgresql/data/pgdata
+            - name: POD_IP
+              valueFrom: { fieldRef: { fieldPath: status.podIP } }
+          livenessProbe:
+            initialDelaySeconds: 60
+            timeoutSeconds: 5
+            failureThreshold: 5
+            exec:
+              command:
+                - /bin/sh
+                - -c
+                - exec pg_isready --host $POD_IP ||  if [[ $(psql -qtAc --host $POD_IP 'SELECT pg_is_in_recovery') != "f" ]]; then  exit 0 else; exit 1; fi
+          readinessProbe:
+            initialDelaySeconds: 5
+            timeoutSeconds: 5
+            periodSeconds: 5
+            exec:
+              command:
+                - /bin/sh
+                - -c
+                - exec pg_isready --host $POD_IP
+          resources:
+            requests:
+              memory: "512Mi"
+              cpu: '0.5'
+      volumes:
+        - name: dbvol
+          emptyDir: {}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: airflow
+  namespace: airflow-on-k8s
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      name: airflow
+  template:
+    metadata:
+      labels:
+        name: airflow
+    spec:
+      serviceAccountName: airflow
+      initContainers:
+        - name: "init"
+          image: apache/airflow:1.10.12-python3.8
+          imagePullPolicy: Always
+          volumeMounts:
+            - name: airflow-configmap
+              mountPath: /root/airflow/airflow.cfg
+              subPath: airflow.cfg
+            - name: airflow-dags
+              mountPath: /root/airflow/dags
+          env:
+            - name: SQL_ALCHEMY_CONN
+              valueFrom:
+                secretKeyRef:
+                  name: airflow-secrets
+                  key: sql_alchemy_conn
+          command:
+            - "bash"
+          args:
+            - "-cx"
+            - |
+              cd /opt/airflow/airflow && \
+              cp -R example_dags/* /root/airflow/dags/ && \
+              find /root/airflow/dags/ && \
+              airflow db init && \
+              alembic upgrade heads && \
+              (airflow users create --username airflow --lastname airflow --firstname jon --email airflow@apache.org --role Admin --password airflow || true) && \
+              echo "retrieved from mount" > /root/test_volume/test.txt
+
+      containers:
+        - name: webserver
+          image: :0.0.1
+          imagePullPolicy: Always
+          ports:
+            - name: webserver
+              containerPort: 8080
+          args: ["webserver"]
+          env:
+            - name: AIRFLOW_KUBE_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: SQL_ALCHEMY_CONN
+              valueFrom:
+                secretKeyRef:
+                  name: airflow-secrets
+                  key: sql_alchemy_conn
+          volumeMounts:
+            - name: airflow-configmap
+              mountPath: /root/airflow/airflow.cfg
+              subPath: airflow.cfg
+            - name: airflow-dags
+              mountPath: /root/airflow/dags
+            - name: airflow-logs
+              mountPath: /root/airflow/logs
+        - name: scheduler
+          image: :0.0.1
+          imagePullPolicy: Always
+          args: ["scheduler"]
+          env:
+            - name: AIRFLOW_KUBE_NAMESPACE
+              valueFrom:
+                fieldRef:
+                  fieldPath: metadata.namespace
+            - name: SQL_ALCHEMY_CONN
+              valueFrom:
+                secretKeyRef:
+                  name: airflow-secrets
+                  key: sql_alchemy_conn
+          volumeMounts:
+            - name: airflow-configmap
+              mountPath: /root/airflow/airflow.cfg
+              subPath: airflow.cfg
+            - name: airflow-dags
+              mountPath: /root/airflow/dags
+            - name: airflow-logs
+              mountPath: /root/airflow/logs
+      volumes:
+        - name: airflow-dags
+          persistentVolumeClaim:
+            claimName: airflow-dags
+        - name: airflow-dags-fake
+          emptyDir: {}
+        - name: airflow-dags-git
+          emptyDir: {}
+        - name: airflow-logs
+          persistentVolumeClaim:
+            claimName: airflow-logs
+        - name: airflow-configmap
+          configMap:
+            name: airflow-configmap
