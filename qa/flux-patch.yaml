@@ -35,7 +35,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-proxy-api-gene
       containers:
-      - image: chusj/clin-proxy-api-gene-service:07a35657157a7f105735a27df4889ba8b66a9d03
+      - image: chusj/clin-proxy-api-gene-service:dba4e3290c06e2ee3c66674abcc716cada352d7a
         name: clin-proxy-api-gene
 ---
 apiVersion: apps/v1
