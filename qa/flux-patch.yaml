@@ -61,7 +61,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-proxy-api-meta
       containers:
-      - image: chusj/clin-proxy-api-meta-service:dba4e3290c06e2ee3c66674abcc716cada352d7a
+      - image: chusj/clin-proxy-api-meta-service:0ac064f1dca6ce0520144049342ef6981a60f228
         name: clin-proxy-api-meta
 ---
 apiVersion: apps/v1
