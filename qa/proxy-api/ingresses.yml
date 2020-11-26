@@ -7,7 +7,7 @@ spec:
   tls:
     - hosts:
       - meta.qa.clin.ferlab.bio
-      secretName: letsencrypt-certificate-temp
+      secretName: letsencrypt-certificate
   rules:
     - host: meta.qa.clin.ferlab.bio
       http:
