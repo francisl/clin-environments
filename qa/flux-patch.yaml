@@ -48,7 +48,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-proxy-api-hpo
       containers:
-      - image: chusj/clin-proxy-api-hpo-service:8dac617d392dab67857ed2da523e180951b5e30f
+      - image: chusj/clin-proxy-api-hpo-service:55c9429233a1b7c86b93f51a11fab1bd9627aedc
         name: clin-proxy-api-hpo
 ---
 apiVersion: apps/v1
