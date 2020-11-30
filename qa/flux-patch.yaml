@@ -35,7 +35,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-proxy-api-gene
       containers:
-      - image: chusj/clin-proxy-api-gene-service:55c9429233a1b7c86b93f51a11fab1bd9627aedc
+      - image: chusj/clin-proxy-api-gene-service:436441f858a8ed9113562aaa76e65b3ecbac4cbd
         name: clin-proxy-api-gene
 ---
 apiVersion: apps/v1
@@ -48,7 +48,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-proxy-api-hpo
       containers:
-      - image: chusj/clin-proxy-api-hpo-service:55c9429233a1b7c86b93f51a11fab1bd9627aedc
+      - image: chusj/clin-proxy-api-hpo-service:436441f858a8ed9113562aaa76e65b3ecbac4cbd
         name: clin-proxy-api-hpo
 ---
 apiVersion: apps/v1
@@ -61,7 +61,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-proxy-api-meta
       containers:
-      - image: chusj/clin-proxy-api-meta-service:55c9429233a1b7c86b93f51a11fab1bd9627aedc
+      - image: chusj/clin-proxy-api-meta-service:436441f858a8ed9113562aaa76e65b3ecbac4cbd
         name: clin-proxy-api-meta
 ---
 apiVersion: apps/v1
@@ -87,5 +87,5 @@ spec:
       $setElementOrder/containers:
       - name: clin-proxy-api-variant
       containers:
-      - image: chusj/clin-proxy-api-variant-service:55c9429233a1b7c86b93f51a11fab1bd9627aedc
+      - image: chusj/clin-proxy-api-variant-service:436441f858a8ed9113562aaa76e65b3ecbac4cbd
         name: clin-proxy-api-variant
