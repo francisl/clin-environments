@@ -74,7 +74,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-proxy-api-patient
       containers:
-      - image: chusj/clin-proxy-api-patient-service:55c9429233a1b7c86b93f51a11fab1bd9627aedc
+      - image: chusj/clin-proxy-api-patient-service:436441f858a8ed9113562aaa76e65b3ecbac4cbd
         name: clin-proxy-api-patient
 ---
 apiVersion: apps/v1
