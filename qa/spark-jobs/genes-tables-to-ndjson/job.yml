@@ -1,0 +1,48 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: genes-tables-to-ndjson
+  namespace: spark
+spec:
+  template:
+    spec:
+      serviceAccountName: spark
+      containers:
+      - name: genes-tables-to-ndjson
+        image: chusj/spark:2b05281a31f7feb82716ca3b303d37a700a4bb3c
+        env:
+          - name: SPARK_CLASS
+            value: bio.ferlab.clin.etl.PrepareGeneIndex
+          - name: SPARK_JAR
+            value: s3a://spark/clin-etl-variant.jar
+          - name: SPARK_CLIENT_POD_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+        volumeMounts:
+          - name: spark-defaults
+            mountPath: /opt/spark-configs/defaults
+            readOnly: true
+          - name: genes-tables-to-ndjson
+            mountPath: /opt/spark-configs/genes-tables-to-ndjson
+            readOnly: true
+          - name: s3-credentials
+            mountPath: /opt/spark-configs/s3-credentials
+            readOnly: true
+        command:
+          - "/opt/client-entrypoint.sh"
+        args:
+          - s3a://clin/es_genes_index_ndjson
+      restartPolicy: Never
+      volumes:
+        - name: spark-defaults
+          configMap:
+            name: spark-defaults
+        - name: genes-tables-to-ndjson
+          configMap:
+            name: genes-tables-to-ndjson
+        - name: s3-credentials
+          secret:
+            secretName: s3-credentials
+  backoffLimit: 4
