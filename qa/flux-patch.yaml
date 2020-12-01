@@ -22,7 +22,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-frontend
       containers:
-      - image: chusj/clin-frontend:8404b6f9422ac410e18211ee032e03ccd6d2df75
+      - image: chusj/clin-frontend:0fc847db352947fa8134f7d7330dd3c9002ac14e
         name: clin-frontend
 ---
 apiVersion: apps/v1
