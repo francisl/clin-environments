@@ -5,3 +5,7 @@ kind: Kustomization
 resources:
   - ../../common/fhir-console
   - ingresses.yml
+
+patchesStrategicMerge:
+  - configs.yml
+  - deployments.yml
