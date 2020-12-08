@@ -1,0 +1,39 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: clin-fhir-console
+  name: clin-fhir-console
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: clin-fhir-console
+  template:
+    metadata:
+      labels:
+        app: clin-fhir-console
+    spec:
+      containers:
+        - image: chusj/fhir-console:__UNDEFINED__
+          name: clin-fhir-console
+          resources:
+            requests:
+              memory: "1024Mi"
+              cpu: '1.00'
+            limits:
+              memory: "2048Mi"
+              cpu: '2.00'
+          volumeMounts:
+            - name: application-config
+              mountPath: /app/config
+              readOnly: true
+
+      volumes:
+        - name: application-config
+          configMap:
+            name: clin-fhir-console-config
+            items:
+              - key: application.properties
+                path: application.properties

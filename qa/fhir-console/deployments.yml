@@ -1,0 +1,13 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    fluxcd.io/automated: 'true'
+  name: clin-fhir-console
+spec:
+  template:
+    spec:
+      containers:
+        - image: chusj/fhir-console:25b745b
+          name: clin-fhir-console
