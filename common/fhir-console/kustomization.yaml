@@ -6,3 +6,7 @@ resources:
   - deployments.yml
   - services.yml
   - configs.yml
+
+patchesStrategicMerge:
+  - configs.yml
+  - deployments.yml

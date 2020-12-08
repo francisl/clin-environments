@@ -29,9 +29,7 @@ spec:
             - name: application-config
               mountPath: /app/config
               readOnly: true
-          envFrom:
-            - configMapRef:
-                name: clin-fhir-console
+
       volumes:
         - name: application-config
           configMap:
