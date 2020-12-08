@@ -6,3 +6,4 @@ resources:
   - proxy-api
   - fhir-server
   - spark-sql
+  - fhir-console
