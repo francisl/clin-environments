@@ -35,7 +35,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-proxy-api-gene
       containers:
-      - image: chusj/clin-proxy-api-gene-service:7a3528344074a8c0cfb2c6b8000518d84e7ac544
+      - image: chusj/clin-proxy-api-gene-service:dba7ccecccacf8130106754345916a518883a977
         name: clin-proxy-api-gene
 ---
 apiVersion: apps/v1
@@ -74,7 +74,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-proxy-api-patient
       containers:
-      - image: chusj/clin-proxy-api-patient-service:7a3528344074a8c0cfb2c6b8000518d84e7ac544
+      - image: chusj/clin-proxy-api-patient-service:dba7ccecccacf8130106754345916a518883a977
         name: clin-proxy-api-patient
 ---
 apiVersion: apps/v1
