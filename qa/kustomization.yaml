@@ -7,3 +7,4 @@ resources:
   - fhir-server
   - spark-sql
   - fhir-console
+  - keycloak
