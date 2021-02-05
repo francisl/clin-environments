@@ -9,7 +9,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-fhir-server
       containers:
-      - image: chusj/clin-fhir-server:6e9f9c7
+      - image: chusj/clin-fhir-server:61a234f
         name: clin-fhir-server
 ---
 apiVersion: apps/v1
