@@ -22,5 +22,5 @@ spec:
       $setElementOrder/containers:
       - name: clin-frontend
       containers:
-      - image: chusj/clin-frontend:cd27d74e84ebe3dccad50d524b03d767cbf32ceb
+      - image: chusj/clin-frontend:3e44b898fb9ae64b4e7f1380f4cf5f28c0112e18
         name: clin-frontend
