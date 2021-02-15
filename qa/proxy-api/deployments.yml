@@ -8,8 +8,10 @@ metadata:
 spec:
   template:
     spec:
+      imagePullSecrets:
+        - name: images-pull
       containers:
-        - image: chusj/clin-proxy-api-meta-service:9c37a2e04ad72be07fd14f8e439278f107d4bbbd
+        - image: ferlabcrsj/clin-proxy-api-meta-service:ce03449b1eaf12c96506c3f95122d24e66c853b5
           name: clin-proxy-api-meta
 ---
 apiVersion: apps/v1
@@ -21,8 +23,10 @@ metadata:
 spec:
   template:
     spec:
+      imagePullSecrets:
+        - name: images-pull
       containers:
-        - image: chusj/clin-proxy-api-gene-service:9c37a2e04ad72be07fd14f8e439278f107d4bbbd
+        - image: ferlabcrsj/clin-proxy-api-gene-service:ce03449b1eaf12c96506c3f95122d24e66c853b5
           name: clin-proxy-api-gene
 ---
 apiVersion: apps/v1
@@ -34,8 +38,10 @@ metadata:
 spec:
   template:
     spec:
+      imagePullSecrets:
+        - name: images-pull
       containers:
-        - image: chusj/clin-proxy-api-variant-service:9c37a2e04ad72be07fd14f8e439278f107d4bbbd
+        - image: ferlabcrsj/clin-proxy-api-variant-service:ce03449b1eaf12c96506c3f95122d24e66c853b5
           name: clin-proxy-api-variant
 ---
 apiVersion: apps/v1
@@ -47,8 +53,10 @@ metadata:
 spec:
   template:
     spec:
+      imagePullSecrets:
+        - name: images-pull
       containers:
-        - image: chusj/clin-proxy-api-patient-service:9c37a2e04ad72be07fd14f8e439278f107d4bbbd
+        - image: ferlabcrsj/clin-proxy-api-patient-service:ce03449b1eaf12c96506c3f95122d24e66c853b5
           name: clin-proxy-api-patient
 ---
 apiVersion: apps/v1
@@ -60,6 +68,8 @@ metadata:
 spec:
   template:
     spec:
+      imagePullSecrets:
+        - name: images-pull
       containers:
-        - image: chusj/clin-proxy-api-hpo-service:c08a5a67db656bad1313a446f422a1d171039aec
+        - image: ferlabcrsj/clin-proxy-api-hpo-service:ce03449b1eaf12c96506c3f95122d24e66c853b5
           name: clin-proxy-api-hpo
