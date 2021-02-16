@@ -1,0 +1,13 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clin-fhir-server
+spec:
+  template:
+    spec:
+      $setElementOrder/containers:
+      - name: clin-fhir-server
+      containers:
+      - image: chusj/clin-fhir-server:fce442d
+        name: clin-fhir-server
