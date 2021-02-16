@@ -8,6 +8,8 @@ metadata:
 spec:
   template:
     spec:
+      imagePullSecrets:
+        - name: images-pull
       containers:
-        - image: chusj/clin-frontend:aefc01277be3a1655fcf24d31afa4da95e923b1c
+        - image: ferlabcrsj/clin-frontend:99bbcad197bd913e2b5f0e8c0f23e27ca593382f
           name: clin-frontend
