@@ -8,6 +8,8 @@ metadata:
 spec:
   template:
     spec:
+      imagePullSecrets:
+        - name: images-pull
       containers:
-        - image: chusj/fhir-console:25b745b
+        - image: ferlabcrsj/fhir-console:768c788
           name: clin-fhir-console
