@@ -9,5 +9,5 @@ spec:
       $setElementOrder/containers:
       - name: clin-frontend
       containers:
-      - image: ferlabcrsj/clin-frontend:b94faa854c57f691bd945743aaba14d85e1d3cd9
+      - image: ferlabcrsj/clin-frontend:47068b6e1a6864dec835a85f545a39de6a5e133c
         name: clin-frontend
