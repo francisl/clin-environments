@@ -2,15 +2,17 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: genes-tables-creation
+  name: genes-tables-creation-2021-02-19
   namespace: spark
 spec:
   template:
     spec:
       serviceAccountName: spark
+      imagePullSecrets:
+        - name: images-pull
       containers:
       - name: genes-tables-creation
-        image: chusj/spark:2b05281a31f7feb82716ca3b303d37a700a4bb3c
+        image: ferlabcrsj/spark:ba3d4e6d97baef31fb450cb6c75c73b19ec64fce
         env:
           - name: SPARK_CLASS
             value: bio.ferlab.clin.etl.CreateGenesTable
