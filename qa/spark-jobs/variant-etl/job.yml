@@ -13,7 +13,7 @@ spec:
         image: ferlabcrsj/spark:ba3d4e6d97baef31fb450cb6c75c73b19ec64fce
         env:
           - name: SPARK_CLASS
-            value: bio.ferlab.clin.etl.ImportVcf
+            value: bio.ferlab.clin.etl.vcf.ImportVcf
           - name: SPARK_JAR
             value: s3a://spark/clin-etl-variant.jar
           - name: SPARK_CLIENT_POD_NAME
@@ -34,7 +34,7 @@ spec:
           - "/opt/client-entrypoint.sh"
         args:
           - s3a://clin/vcf/complete_joint_calling.vqsr.bcftools_norm_ref.vep_20191218.SeqCap_EZ_Exome_v3_capture.vcf.gz
-          - s3a://clin/variant_db 
+          - s3a://clin/variant_db/normalized
           - BAT1
           - all
       restartPolicy: Never

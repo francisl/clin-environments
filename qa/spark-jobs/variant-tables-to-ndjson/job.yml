@@ -15,7 +15,7 @@ spec:
         image: ferlabcrsj/spark:ba3d4e6d97baef31fb450cb6c75c73b19ec64fce
         env:
           - name: SPARK_CLASS
-            value: bio.ferlab.clin.etl.PrepareIndex
+            value: bio.ferlab.clin.etl.es.PrepareIndex
           - name: SPARK_JAR
             value: s3a://spark/clin-etl-variant.jar
           - name: SPARK_CLIENT_POD_NAME
