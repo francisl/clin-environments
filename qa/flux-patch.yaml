@@ -22,5 +22,5 @@ spec:
       $setElementOrder/containers:
       - name: clin-frontend
       containers:
-      - image: ferlabcrsj/clin-frontend:0184569dc9ac68042b0f3596e158d2fe42a28f09
+      - image: ferlabcrsj/clin-frontend:df44db6ce776d806822b53785845006b3798ca43
         name: clin-frontend
