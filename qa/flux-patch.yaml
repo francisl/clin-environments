@@ -28,6 +28,19 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: clin-proxy-api-gene
+spec:
+  template:
+    spec:
+      $setElementOrder/containers:
+      - name: clin-proxy-api-gene
+      containers:
+      - image: ferlabcrsj/clin-proxy-api-gene-service:c40f6edf537c97fe22ac3e0a792c515208a2c044
+        name: clin-proxy-api-gene
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
   name: clin-proxy-api-hpo
 spec:
   template:
@@ -37,6 +50,19 @@ spec:
       containers:
       - image: ferlabcrsj/clin-proxy-api-hpo-service:c40f6edf537c97fe22ac3e0a792c515208a2c044
         name: clin-proxy-api-hpo
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clin-proxy-api-meta
+spec:
+  template:
+    spec:
+      $setElementOrder/containers:
+      - name: clin-proxy-api-meta
+      containers:
+      - image: ferlabcrsj/clin-proxy-api-meta-service:c40f6edf537c97fe22ac3e0a792c515208a2c044
+        name: clin-proxy-api-meta
 ---
 apiVersion: apps/v1
 kind: Deployment
