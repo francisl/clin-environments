@@ -41,6 +41,19 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: clin-proxy-api-patient
+spec:
+  template:
+    spec:
+      $setElementOrder/containers:
+      - name: clin-proxy-api-patient
+      containers:
+      - image: ferlabcrsj/clin-proxy-api-patient-service:c40f6edf537c97fe22ac3e0a792c515208a2c044
+        name: clin-proxy-api-patient
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
   name: clin-proxy-api-variant
 spec:
   template:
