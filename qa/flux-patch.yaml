@@ -24,3 +24,16 @@ spec:
       containers:
       - image: ferlabcrsj/clin-frontend:2aaf4892dc7bd9be904eac9f87beda3bfa67133d
         name: clin-frontend
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clin-proxy-api-hpo
+spec:
+  template:
+    spec:
+      $setElementOrder/containers:
+      - name: clin-proxy-api-hpo
+      containers:
+      - image: ferlabcrsj/clin-proxy-api-hpo-service:c40f6edf537c97fe22ac3e0a792c515208a2c044
+        name: clin-proxy-api-hpo
