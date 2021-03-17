@@ -15,7 +15,7 @@ spec:
             - name: SPARK_CLASS
               value: bio.ferlab.clin.etl.fhir.FhirRawToNormalized
             - name: SPARK_JAR
-              value: s3a://spark/clin-etl-variant.jar
+              value: s3a://spark/clin-variant-etl.jar
             - name: SPARK_CLIENT_POD_NAME
               valueFrom:
                 fieldRef:
