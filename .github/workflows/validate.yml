@@ -3,12 +3,24 @@ name: Validate Manifests
 on: [push]
 
 jobs:
-  Deploy:
-    name: Validate Manifests
+  Validate-qa:
+    name: Validate Qa Manifests
     runs-on: ubuntu-18.04
     container: fluxcd/flux:1.21.0
     steps:
     - uses: actions/checkout@v2
-    - name: Kustomize Build on QA
+    - name: Kustomize Build
       run: kustomize build .
       working-directory: qa
+  Validate-dev:
+    name: Validate Dev Manifests
+    runs-on: ubuntu-18.04
+    container: fluxcd/flux:1.21.0
+    steps:
+    - uses: actions/checkout@v2
+    - name: Get git submodules
+      run: git submodule init && git submodule update
+      working-directory: dev
+    - name: Kustomize Build
+      run: kustomize build .
+      working-directory: dev
