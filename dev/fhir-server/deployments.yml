@@ -13,3 +13,14 @@ spec:
       containers:
         - image: ferlabcrsj/clin-fhir-server:b808c4f
           name: clin-fhir-server
+          env:
+            - name: SPRING_DATASOURCE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: clin-fhir-db-credentials
+                  key: username
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: clin-fhir-db-credentials
+                  key: password
