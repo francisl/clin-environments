@@ -22,7 +22,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-frontend
       containers:
-      - image: ferlabcrsj/clin-frontend:8d6b9a77db5209a86f3d4109caf8355074d158ce
+      - image: ferlabcrsj/clin-frontend:5d3a87dccf71a13c434a355a119d38b1d932df67
         name: clin-frontend
 ---
 apiVersion: apps/v1
