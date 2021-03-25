@@ -1,0 +1,9 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: clin-fhir-server
+data:
+  HAPI_DATASOURCE_URL: jdbc:postgresql://clin-fhir-db:5432/hapi
+  HAPI_AUTH_SERVER_URL: https://auth.qa.cqdg.ferlab.bio
+  HAPI_SERVER_ADDRESS: https://fhir.dev.clin.ferlab.bio/fhir/
