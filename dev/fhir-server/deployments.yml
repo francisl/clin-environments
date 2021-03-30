@@ -8,6 +8,11 @@ metadata:
 spec:
   template:
     spec:
+      volume:
+        - name: postgres-ca-certificate
+          secret:
+            secretName: postgres-ca-certificate
+            defaultMode: 0555
       imagePullSecrets:
         - name: images-pull
       containers:
@@ -15,12 +20,14 @@ spec:
           name: clin-fhir-server
           env:
             - name: SPRING_DATASOURCE_USERNAME
+              value: clin-fhir-db-incoming
+            - name: SPRING_DATASOURCE_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: clin-fhir-db-credentials
+                  name: clin-fhir-v2-db-credentials
                   key: username
             - name: SPRING_DATASOURCE_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: clin-fhir-db-credentials
+                  name: clin-fhir-v2-db-credentials
                   key: password
