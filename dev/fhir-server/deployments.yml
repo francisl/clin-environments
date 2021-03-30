@@ -20,8 +20,6 @@ spec:
           name: clin-fhir-server
           env:
             - name: SPRING_DATASOURCE_USERNAME
-              value: clin-fhir-db-incoming
-            - name: SPRING_DATASOURCE_USERNAME
               valueFrom:
                 secretKeyRef:
                   name: clin-fhir-v2-db-credentials
