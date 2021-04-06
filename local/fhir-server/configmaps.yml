@@ -1,0 +1,10 @@
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: clin-fhir-server
+data:
+  SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/postgres
+  BIO_AUTH_SERVER_URL: https://auth.qa.cqdg.ferlab.bio
+  BIO_ELASTICSEARCH_PATIENT_INDEX: prescriptions
+  HAPI_FHIR_SERVER_ADDRESS: https://fhir.local.clin.ferlab.bio/fhir/

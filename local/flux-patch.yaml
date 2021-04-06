@@ -1,0 +1,14 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clin-fhir-server
+  namespace: clin-local
+spec:
+  template:
+    spec:
+      $setElementOrder/containers:
+        - name: clin-fhir-server
+      containers:
+        - image: ferlabcrsj/clin-fhir-server:0191847
+          name: clin-fhir-server
