@@ -6,9 +6,11 @@ metadata:
     app: clin-fhir-server
   name: clin-fhir-server
 spec:
+  type: NodePort
   ports:
-  - port: 8080
-    protocol: TCP
-    targetPort: 8080
+    - port: 8080
+      protocol: TCP
+      targetPort: 8080
+      nodePort: 30800
   selector:
     app: clin-fhir-server

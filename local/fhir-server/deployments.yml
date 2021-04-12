@@ -2,6 +2,8 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  labels:
+    app: clin-fhir-server
   annotations:
     fluxcd.io/automated: "true"
   name: clin-fhir-server
@@ -9,8 +11,20 @@ spec:
   template:
     spec:
       containers:
-        - image: ferlabcrsj/clin-fhir-server:b808c4f
+        - image: clin-fhir-server
+          imagePullPolicy: Never
           name: clin-fhir-server
+          env:
+            - name: SPRING_DATASOURCE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: clin-fhir-db-credentials
+                  key: username
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: clin-fhir-db-credentials
+                  key: password
           resources:
             requests:
               memory: "1024Mi"

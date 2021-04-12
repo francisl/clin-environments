@@ -3,4 +3,3 @@ kind: Kustomization
 
 resources:
   - fhir-server
-  - secrets.yml

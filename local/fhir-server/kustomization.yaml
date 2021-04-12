@@ -6,6 +6,7 @@ namespace: default
 
 resources:
   - ../../common/fhir-server
+  - secrets.yml
 
 patchesStrategicMerge:
   - configmaps.yml
