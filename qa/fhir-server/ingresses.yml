@@ -9,13 +9,13 @@ metadata:
 spec:
   tls:
     - hosts:
-      - fhir.qa.clin.ferlab.bio
+        - fhir.qa.clin.ferlab.bio
       secretName: letsencrypt-certificate
   rules:
     - host: fhir.qa.clin.ferlab.bio
       http:
         paths:
-        - path: /
-          backend:
-            serviceName: clin-fhir-server
-            servicePort: 8080
+          - path: /
+            backend:
+              serviceName: clin-fhir-server
+              servicePort: 8080

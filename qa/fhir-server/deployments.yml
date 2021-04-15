@@ -3,13 +3,33 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   annotations:
-  # fluxcd.io/automated: 'true'
+    fluxcd.io/automated: "true"
   name: clin-fhir-server
 spec:
   template:
     spec:
+      volumes:
+        - name: postgres-ca-certificate
+          secret:
+            secretName: postgres-ca-certificate
+            defaultMode: 0555
       imagePullSecrets:
         - name: images-pull
       containers:
-        - image: ferlabcrsj/clin-fhir-server:b808c4f
+        - image: ferlabcrsj/clin-fhir-server:220bafb
           name: clin-fhir-server
+          env:
+            - name: SPRING_DATASOURCE_USERNAME
+              valueFrom:
+                secretKeyRef:
+                  name: clin-fhir-v2-db-credentials
+                  key: username
+            - name: SPRING_DATASOURCE_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: clin-fhir-v2-db-credentials
+                  key: password
+          volumeMounts:
+            - name: postgres-ca-certificate
+              mountPath: /opt/ca
+              readOnly: true
