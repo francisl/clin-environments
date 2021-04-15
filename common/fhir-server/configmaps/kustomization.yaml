@@ -9,6 +9,6 @@ configMapGenerator:
       - BIO_AUTH_SERVER_URL=https://__UNDEFINED__
       - BIO_AUTH_REALM=clin
       - BIO_AUTH_ENABLED=true
-      - BIO_DISABLE_SSL_VALIDATION="false"
+      - BIO_AUTH_DISABLE_SSL_VALIDATION="false"
       - HAPI_FHIR_SERVER_ADDRESS=https://__UNDEFINED__/fhir/
       - JAVA_OPTS="-server -Xmx1024m -Djava.net.preferIPv4Stack=true -Djava.awt.headless=true -XX:+UseContainerSupport"
