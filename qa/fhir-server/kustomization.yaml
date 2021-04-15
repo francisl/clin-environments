@@ -5,6 +5,7 @@ kind: Kustomization
 resources:
   - ../../common/fhir-server
   - ingresses.yml
+  - backups
 
 patchesStrategicMerge:
   - configmaps.yml
