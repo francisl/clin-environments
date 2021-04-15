@@ -16,7 +16,7 @@ spec:
       imagePullSecrets:
         - name: images-pull
       containers:
-        - image: ferlabcrsj/clin-fhir-server:b808c4f
+        - image: ferlabcrsj/clin-fhir-server:220bafb
           name: clin-fhir-server
           env:
             - name: SPRING_DATASOURCE_USERNAME
