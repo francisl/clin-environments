@@ -8,4 +8,3 @@ data:
   BIO_AUTH_SERVER_URL: https://auth.qa.cqdg.ferlab.bio
   BIO_ELASTICSEARCH_PATIENT_INDEX: prescriptions
   HAPI_FHIR_SERVER_ADDRESS: https://fhir.qa.clin.ferlab.bio/fhir/
-  BIO_AUDITS_ENABLED: "true"
