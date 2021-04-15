@@ -21,21 +21,10 @@ spec:
           resources:
             requests:
               memory: "1024Mi"
-              cpu: '1.00'
+              cpu: "1.00"
             limits:
               memory: "2048Mi"
-              cpu: '2.00'
+              cpu: "2.00"
           envFrom:
             - configMapRef:
                 name: clin-fhir-server
-          env:
-            - name: HAPI_DATASOURCE_USERNAME
-              valueFrom:
-                secretKeyRef:
-                  name: clin-fhir-db-credentials
-                  key: username
-            - name: HAPI_DATASOURCE_PASSWORD
-              valueFrom:
-                secretKeyRef:
-                  name: clin-fhir-db-credentials
-                  key: password

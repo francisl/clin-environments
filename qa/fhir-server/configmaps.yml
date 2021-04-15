@@ -4,6 +4,8 @@ kind: ConfigMap
 metadata:
   name: clin-fhir-server
 data:
-  HAPI_DATASOURCE_URL: jdbc:postgresql://clin-fhir-db:5432/hapi
-  HAPI_AUTH_SERVER_URL: https://auth.qa.cqdg.ferlab.bio
-  HAPI_SERVER_ADDRESS: https://fhir.qa.clin.ferlab.bio/fhir/
+  SPRING_DATASOURCE_URL: jdbc:postgresql://clin-fhir-db-incoming:5432/fhir?sslmode=verify-full&sslrootcert=/opt/ca/ca.pem
+  BIO_AUTH_SERVER_URL: https://auth.qa.cqdg.ferlab.bio
+  BIO_ELASTICSEARCH_PATIENT_INDEX: prescriptions
+  HAPI_FHIR_SERVER_ADDRESS: https://fhir.qa.clin.ferlab.bio/fhir/
+  BIO_AUDITS_ENABLED: "true"
