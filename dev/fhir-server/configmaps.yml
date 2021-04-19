@@ -6,5 +6,5 @@ metadata:
 data:
   SPRING_DATASOURCE_URL: jdbc:postgresql://clin-fhir-db-incoming:5432/fhir?sslmode=verify-full&sslrootcert=/opt/ca/ca.pem
   BIO_AUTH_SERVER_URL: https://auth.qa.cqdg.ferlab.bio
-  BIO_ELASTICSEARCH_PATIENT_INDEX: prescriptions
+  BIO_ELASTICSEARCH_PATIENT_INDEX: prescriptions-dev
   HAPI_FHIR_SERVER_ADDRESS: https://fhir.dev.clin.ferlab.bio/fhir/
