@@ -31,12 +31,12 @@ spec:
                 - name: PGUSER
                   valueFrom:
                     secretKeyRef:
-                      name: clin-fhir-v2-db-credentials
+                      name: clin-fhir-db-credentials
                       key: username
                 - name: PGPASSWORD
                   valueFrom:
                     secretKeyRef:
-                      name: clin-fhir-v2-db-credentials
+                      name: clin-fhir-db-credentials
                       key: password
               envFrom:
                 - secretRef:

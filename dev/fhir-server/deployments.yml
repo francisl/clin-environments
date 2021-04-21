@@ -22,12 +22,12 @@ spec:
             - name: SPRING_DATASOURCE_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: clin-fhir-v2-db-credentials
+                  name: clin-fhir-db-credentials
                   key: username
             - name: SPRING_DATASOURCE_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: clin-fhir-v2-db-credentials
+                  name: clin-fhir-db-credentials
                   key: password
           volumeMounts:
             - name: postgres-ca-certificate
