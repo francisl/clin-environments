@@ -9,7 +9,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-fhir-server
       containers:
-      - image: ferlabcrsj/clin-fhir-server:c694c0a
+      - image: ferlabcrsj/clin-fhir-server:8d7fa33
         name: clin-fhir-server
 ---
 apiVersion: apps/v1
@@ -35,7 +35,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-proxy-api-gene
       containers:
-      - image: ferlabcrsj/clin-proxy-api-gene-service:72e3f9f1e59d2dd626a44e32032a7b09a5091f4c
+      - image: ferlabcrsj/clin-proxy-api-gene-service:f6c98e8c33c04d3e87fc092232228f5a7a3e94a0
         name: clin-proxy-api-gene
 ---
 apiVersion: apps/v1
