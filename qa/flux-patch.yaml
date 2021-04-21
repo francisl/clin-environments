@@ -61,7 +61,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-proxy-api-meta
       containers:
-      - image: ferlabcrsj/clin-proxy-api-meta-service:72e3f9f1e59d2dd626a44e32032a7b09a5091f4c
+      - image: ferlabcrsj/clin-proxy-api-meta-service:f6c98e8c33c04d3e87fc092232228f5a7a3e94a0
         name: clin-proxy-api-meta
 ---
 apiVersion: apps/v1
@@ -74,7 +74,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-proxy-api-patient
       containers:
-      - image: ferlabcrsj/clin-proxy-api-patient-service:72e3f9f1e59d2dd626a44e32032a7b09a5091f4c
+      - image: ferlabcrsj/clin-proxy-api-patient-service:f6c98e8c33c04d3e87fc092232228f5a7a3e94a0
         name: clin-proxy-api-patient
 ---
 apiVersion: apps/v1
