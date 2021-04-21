@@ -4,6 +4,7 @@ kind: Kustomization
 configMapGenerator:
   - name: clin-fhir-server
     literals:
+      - BIO_ELASTICSEARCH_HOST=elasticsearch-workers
       - SPRING_DATASOURCE_URL=jdbc:postgresql://__UNDEFINED__:5432/fhir
       - SPRING_JPA_PROPERTIES_HIBERNATE_DIALECT=org.hibernate.dialect.PostgreSQL95Dialect
       - BIO_AUTH_SERVER_URL=https://__UNDEFINED__
