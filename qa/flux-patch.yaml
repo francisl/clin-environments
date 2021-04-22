@@ -48,7 +48,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-proxy-api-hpo
       containers:
-      - image: ferlabcrsj/clin-proxy-api-hpo-service:f6c98e8c33c04d3e87fc092232228f5a7a3e94a0
+      - image: ferlabcrsj/clin-proxy-api-hpo-service:c2b7500e32023f764ed96c4f1118769fa6f5ac33
         name: clin-proxy-api-hpo
 ---
 apiVersion: apps/v1
