@@ -27,3 +27,5 @@ configMapGenerator:
     ELASTIC_SERVICE={"host": "__UNDEFINED__"}
   - |
     KEYCLOAK_CONFIG={ "realm": "clin", "authServerUrl": "__UNDEFINED__" }
+  - KEYCLOAK_URL=__UNDEFINED__
+  - KEYCLOAK_AUTH_CLIENT_ID=__UNDEFINED__
