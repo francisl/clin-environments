@@ -17,7 +17,7 @@ spec:
     spec:
       containers:
         - image: chusj/ferload:__UNDEFINED__
-          name: clin-ferloaf
+          name: clin-ferload
           resources:
             requests:
               memory: "1024Mi"

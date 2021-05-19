@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   annotations:
     fluxcd.io/automated: "true"
-    fluxcd.io/tag.clin-ferload: "regexp:^(?!latest).*|(.{7})$"
+    fluxcd.io/tag.clin-ferload: "regexp:^(?!latest).*|(latest.+)$"
   name: clin-ferload
 spec:
   template:
@@ -18,13 +18,13 @@ spec:
             - name: AWS_ACCESS_KEY
               valueFrom:
                 secretKeyRef:
-                  name: app_clin_download
-                  key: access_key
+                  name: clin-download-s3-credentials
+                  key: S3_ACCESS_KEY
             - name: AWS_SECRET_KEY
               valueFrom:
                 secretKeyRef:
-                  name: app_clin_download
-                  key: secret_key
+                  name: clin-download-s3-credentials
+                  key: S3_SECRET_KEY
             - name: PLAY_HTTP_SECRET_KEY
               valueFrom:
                 secretKeyRef:
