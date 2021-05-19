@@ -8,3 +8,4 @@ resources:
   - spark-sql
   - fhir-console
   - keycloak
+  - ferload
