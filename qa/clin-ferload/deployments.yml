@@ -1,0 +1,32 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    fluxcd.io/automated: "true"
+    fluxcd.io/tag.clin-ferload: "regexp:^(?!latest)$"
+  name: clin-ferload
+spec:
+  template:
+    spec:
+      imagePullSecrets:
+        - name: images-pull
+      containers:
+        - image: ferlabcrsj/ferload:b0609cc
+          name: clin-ferload
+          env:
+            - name: AWS_ACCESS_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: app_clin_download
+                  key: access_key
+            - name: AWS_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: app_clin_download
+                  key: secret_key
+            - name: PLAY_HTTP_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: clin-ferload-play-secret
+                  key: CLIN_FERLOAD_PLAY_SECRET
