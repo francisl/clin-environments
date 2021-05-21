@@ -40,7 +40,7 @@ spec:
                       key: password
               envFrom:
                 - secretRef:
-                    name: s3-credentials
+                    name: clin-fhir-s3-credentials
                 - configMapRef:
                     name: clin-fhir-server-s3-backups
                 - configMapRef:
