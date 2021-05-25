@@ -18,6 +18,13 @@ spec:
       containers:
         - image: ferlabcrsj/clin-fhir-server:220bafb
           name: clin-fhir-server
+          resources:
+            requests:
+              memory: "2048Mi"
+              cpu: "1.00"
+            limits:
+              memory: "4096Mi"
+              cpu: "2.00"
           env:
             - name: SPRING_DATASOURCE_USERNAME
               valueFrom:
