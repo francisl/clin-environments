@@ -11,7 +11,7 @@ spec:
       volumes:
         - name: postgres-ca-certificate
           secret:
-            secretName: postgres-ca-certificate
+            secretName: postgres-qa-ca-certificate
             defaultMode: 0555
       imagePullSecrets:
         - name: images-pull
@@ -22,12 +22,12 @@ spec:
             - name: SPRING_DATASOURCE_USERNAME
               valueFrom:
                 secretKeyRef:
-                  name: clin-fhir-db-credentials
+                  name: postgres-qa-fhir-credentials
                   key: username
             - name: SPRING_DATASOURCE_PASSWORD
               valueFrom:
                 secretKeyRef:
-                  name: clin-fhir-db-credentials
+                  name: postgres-qa-fhir-credentials
                   key: password
           volumeMounts:
             - name: postgres-ca-certificate
