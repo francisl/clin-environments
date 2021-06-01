@@ -11,4 +11,4 @@ resources:
 
 patchesStrategicMerge:
   - clin-theme.yml
-  - cqdg-keycloak.yml
+  - keycloak-overrides.yml
