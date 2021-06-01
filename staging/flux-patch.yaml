@@ -1,0 +1,14 @@
+---
+apiVersion: apps/v1
+kind: DaemonSet
+metadata:
+  name: git-autosync
+  namespace: clin-staging
+spec:
+  template:
+    spec:
+      $setElementOrder/containers:
+      - name: git-autosync
+      containers:
+      - image: ferlabcrsj/git-autosync:1.2.0
+        name: git-autosync
