@@ -4,3 +4,4 @@ kind: Kustomization
 resources:
   - certificate
   - git-autosync
+  - keycloak
