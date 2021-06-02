@@ -29,6 +29,9 @@ spec:
                 secretKeyRef:
                   name: postgres-qa-fhir-credentials
                   key: password
+          envFrom:
+            - secretRef:
+                name: fhir-keycloak-credentials
           volumeMounts:
             - name: postgres-ca-certificate
               mountPath: /opt/ca
