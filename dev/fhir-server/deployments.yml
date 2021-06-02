@@ -32,6 +32,8 @@ spec:
           envFrom:
             - secretRef:
                 name: fhir-keycloak-credentials
+            - configMapRef:
+                name: clin-fhir-server
           volumeMounts:
             - name: postgres-ca-certificate
               mountPath: /opt/ca
