@@ -1,8 +1,7 @@
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: configure-keycloak-clin
-  namespace: terraform
+  name: configure-keycloak
 spec:
   schedule: "*/1 * * * *"
   concurrencyPolicy: Forbid
@@ -19,7 +18,7 @@ spec:
           volumes:
             - name: ssh-key
               secret:
-                secretName: git-autosync-ssh-key
+                secretName: keycloak-terraform-github-ssh-key
                 defaultMode: 0400
             - name: terraform-scripts
               configMap:
@@ -29,13 +28,17 @@ spec:
               secret:
                 secretName: keycloak-terraform-provider-file
                 defaultMode: 0555
-            - name: keycloak-configs-backend
-              secret:
-                secretName: keycloak-configs-clin-backend
+            - name: etcd-backend
+              configMap:
+                name: keycloak-terraform-backend-file
                 defaultMode: 0555
-            - name: ca-certificate
+            - name: etcd-ca-cert
               secret:
-                secretName: ca-certificate
+                secretName: etcd-alpha-ops-ca-cert
+                defaultMode: 0555
+            - name: etcd-client-cert
+              secret:
+                secretName: etcd-alpha-ops-terraform-keycloak-cert
                 defaultMode: 0555
             - name: terraform
               emptyDir: {}
@@ -48,7 +51,7 @@ spec:
                 - name: GIT_BRANCH
                   value: main
                 - name: GIT_PATH
-                  value: qa
+                  value: staging
               command: ["/opt/scripts/clone.sh"]
               volumeMounts:
                 - name: ssh-key
@@ -72,9 +75,12 @@ spec:
                 - name: keycloak-configs-provider
                   mountPath: /opt/providers
                   readOnly: true
-                - name: keycloak-configs-backend
+                - name: etcd-backend
                   mountPath: /opt/backend
                   readOnly: true
-                - name: ca-certificate
-                  mountPath: /opt/ca
+                - name: etcd-ca-cert
+                  mountPath: /opt/etcd-ca
+                  readOnly: true
+                - name: etcd-client-cert
+                  mountPath: /opt/etcd-client-cert
                   readOnly: true
