@@ -22,7 +22,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-fhir-server
       containers:
-      - image: ferlabcrsj/clin-fhir-server:f4d3674
+      - image: ferlabcrsj/clin-fhir-server:9bbed81
         name: clin-fhir-server
 ---
 apiVersion: apps/v1
