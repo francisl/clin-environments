@@ -6,3 +6,4 @@ resources:
   - git-autosync
   - keycloak
   - terraform
+  - fhir-server
