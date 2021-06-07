@@ -12,3 +12,17 @@ spec:
       containers:
       - image: ferlabcrsj/git-autosync:1.2.0
         name: git-autosync
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clin-fhir-server
+  namespace: clin-staging
+spec:
+  template:
+    spec:
+      $setElementOrder/containers:
+      - name: clin-fhir-server
+      containers:
+      - image: ferlabcrsj/clin-fhir-server:1.0.0
+        name: clin-fhir-server
