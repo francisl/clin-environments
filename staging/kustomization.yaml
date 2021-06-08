@@ -7,3 +7,4 @@ resources:
   - keycloak
   - terraform
   - fhir-server
+  - fhir-console
