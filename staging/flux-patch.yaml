@@ -16,6 +16,20 @@ spec:
 apiVersion: apps/v1
 kind: Deployment
 metadata:
+  name: clin-fhir-console
+  namespace: clin-staging
+spec:
+  template:
+    spec:
+      $setElementOrder/containers:
+      - name: clin-fhir-console
+      containers:
+      - image: ferlabcrsj/fhir-console:1.0.0
+        name: clin-fhir-console
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
   name: clin-fhir-server
   namespace: clin-staging
 spec:
