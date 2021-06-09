@@ -1,0 +1,6 @@
+{
+    "actions" : [
+      { "add" : { "alias" : "clin-staging-genes", "index" : "clin-staging-genes_re_002" } },
+      { "add" : { "alias" : "clin-staging-variants", "index" : "clin-staging-variants_bt_bat1_re_004" } }
+    ]
+  }

@@ -1,0 +1,90 @@
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: clin-proxy-api-meta
+spec:
+  tls:
+    - hosts:
+      - meta.staging.clin.ferlab.bio
+      secretName: letsencrypt-certificate
+  rules:
+    - host: meta.staging.clin.ferlab.bio
+      http:
+        paths:
+        - path: /
+          backend:
+            serviceName: clin-proxy-api-meta
+            servicePort: 7000
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: clin-proxy-api-gene
+spec:
+  tls:
+    - hosts:
+      - gene.staging.clin.ferlab.bio
+      secretName: letsencrypt-certificate
+  rules:
+    - host: gene.staging.clin.ferlab.bio
+      http:
+        paths:
+        - path: /
+          backend:
+            serviceName: clin-proxy-api-gene
+            servicePort: 5002
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: clin-proxy-api-variant
+spec:
+  tls:
+    - hosts:
+      - variant.staging.clin.ferlab.bio
+      secretName: letsencrypt-certificate
+  rules:
+    - host: variant.staging.clin.ferlab.bio
+      http:
+        paths:
+        - path: /
+          backend:
+            serviceName: clin-proxy-api-variant
+            servicePort: 5001
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: clin-proxy-api-patient
+spec:
+  tls:
+    - hosts:
+      - patient.staging.clin.ferlab.bio
+      secretName: letsencrypt-certificate
+  rules:
+    - host: patient.staging.clin.ferlab.bio
+      http:
+        paths:
+        - path: /
+          backend:
+            serviceName: clin-proxy-api-patient
+            servicePort: 4000
+---
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: clin-proxy-api-hpo
+spec:
+  tls:
+    - hosts:
+      - hpo.staging.clin.ferlab.bio
+      secretName: letsencrypt-certificate
+  rules:
+    - host: hpo.staging.clin.ferlab.bio
+      http:
+        paths:
+        - path: /
+          backend:
+            serviceName: clin-proxy-api-hpo
+            servicePort: 8400
