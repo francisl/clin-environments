@@ -10,3 +10,4 @@ resources:
   - fhir-console
   - proxy-api
   - ferload
+  - frontend
