@@ -1,0 +1,31 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  annotations:
+    fluxcd.io/automated: 'true'
+    fluxcd.io/tag.app: "semver:~4"
+  name: clin-frontend
+spec:
+  template:
+    spec:
+      imagePullSecrets:
+        - name: images-pull
+      containers:
+        - image: ferlabcrsj/clin-frontend:99bbcad197bd913e2b5f0e8c0f23e27ca593382f
+          name: clin-frontend
+          env:
+            - name: PATIENT_SERVICE_URL
+              value: https://patient.staging.clin.ferlab.bio/patient
+            - name: VARIANT_SERVICE_URL
+              value: https://variant.staging.clin.ferlab.bio/variant
+            - name: GENE_SERVICE_URL
+              value: https://gene.staging.clin.ferlab.bio/gene
+            - name: META_SERVICE_URL
+              value: https://meta.staging.clin.ferlab.bio/meta
+            - name: FHIR_SERVICE_URL
+              value: https://fhir.staging.clin.ferlab.bio/fhir
+            - name: HPO_SERVICE_URL
+              value: https://hpo.staging.clin.ferlab.bio/hpo
+            - name: KEYCLOAK_CONFIG
+              value: "{\\\"realm\\\": \\\"clin\\\", \\\"url\\\": \\\"https://auth.staging.clin.ferlab.bio/auth/\\\", \\\"clientId\\\": \\\"clin-client\\\", \\\"authClientId\\\": \\\"clin-acl\\\"}"
