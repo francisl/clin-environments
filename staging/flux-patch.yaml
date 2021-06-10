@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: clin-frontend
+  namespace: clin-staging
 spec:
   template:
     spec:
