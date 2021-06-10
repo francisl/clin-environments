@@ -8,3 +8,5 @@ resources:
   - terraform
   - fhir-server
   - fhir-console
+  - proxy-api
+  - ferload
