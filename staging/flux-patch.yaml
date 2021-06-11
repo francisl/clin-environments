@@ -1,19 +1,5 @@
 ---
 apiVersion: apps/v1
-kind: Deployment
-metadata:
-  name: clin-frontend
-  namespace: clin-staging
-spec:
-  template:
-    spec:
-      $setElementOrder/containers:
-      - name: clin-frontend
-      containers:
-      - image: ferlabcrsj/clin-frontend:4.0.0
-        name: clin-frontend
----
-apiVersion: apps/v1
 kind: DaemonSet
 metadata:
   name: git-autosync
@@ -66,8 +52,22 @@ spec:
       $setElementOrder/containers:
       - name: clin-fhir-server
       containers:
-      - image: ferlabcrsj/clin-fhir-server:156d6a3
+      - image: ferlabcrsj/clin-fhir-server:1.0.0
         name: clin-fhir-server
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clin-frontend
+  namespace: clin-staging
+spec:
+  template:
+    spec:
+      $setElementOrder/containers:
+      - name: clin-frontend
+      containers:
+      - image: ferlabcrsj/clin-frontend:4.0.0
+        name: clin-frontend
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -80,7 +80,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-proxy-api-gene
       containers:
-      - image: ferlabcrsj/clin-proxy-api-gene-service:936d02ee8218175607299aa942eeb1ae33bf1368
+      - image: ferlabcrsj/clin-proxy-api-gene-service:2.1.2
         name: clin-proxy-api-gene
 ---
 apiVersion: apps/v1
@@ -94,7 +94,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-proxy-api-hpo
       containers:
-      - image: ferlabcrsj/clin-proxy-api-hpo-service:936d02ee8218175607299aa942eeb1ae33bf1368
+      - image: ferlabcrsj/clin-proxy-api-hpo-service:2.1.2
         name: clin-proxy-api-hpo
 ---
 apiVersion: apps/v1
@@ -108,7 +108,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-proxy-api-meta
       containers:
-      - image: ferlabcrsj/clin-proxy-api-meta-service:936d02ee8218175607299aa942eeb1ae33bf1368
+      - image: ferlabcrsj/clin-proxy-api-meta-service:2.1.2
         name: clin-proxy-api-meta
 ---
 apiVersion: apps/v1
@@ -122,7 +122,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-proxy-api-patient
       containers:
-      - image: ferlabcrsj/clin-proxy-api-patient-service:936d02ee8218175607299aa942eeb1ae33bf1368
+      - image: ferlabcrsj/clin-proxy-api-patient-service:2.1.2
         name: clin-proxy-api-patient
 ---
 apiVersion: apps/v1
@@ -136,5 +136,5 @@ spec:
       $setElementOrder/containers:
       - name: clin-proxy-api-variant
       containers:
-      - image: ferlabcrsj/clin-proxy-api-variant-service:936d02ee8218175607299aa942eeb1ae33bf1368
+      - image: ferlabcrsj/clin-proxy-api-variant-service:2.1.2
         name: clin-proxy-api-variant
