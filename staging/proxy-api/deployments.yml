@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   annotations:
     fluxcd.io/automated: 'true'
-    fluxcd.io/tag.app: "semver:~2"
+    fluxcd.io/tag.clin-proxy-api-meta: "semver:~2"
   name: clin-proxy-api-meta
 spec:
   template:
@@ -20,7 +20,7 @@ kind: Deployment
 metadata:
   annotations:
     fluxcd.io/automated: 'true'
-    fluxcd.io/tag.app: "semver:~2"
+    fluxcd.io/tag.clin-proxy-api-gene: "semver:~2"
   name: clin-proxy-api-gene
 spec:
   template:
@@ -36,7 +36,7 @@ kind: Deployment
 metadata:
   annotations:
     fluxcd.io/automated: 'true'
-    fluxcd.io/tag.app: "semver:~2"
+    fluxcd.io/tag.clin-proxy-api-variant: "semver:~2"
   name: clin-proxy-api-variant
 spec:
   template:
@@ -52,7 +52,7 @@ kind: Deployment
 metadata:
   annotations:
     fluxcd.io/automated: 'true'
-    fluxcd.io/tag.app: "semver:~2"
+    fluxcd.io/tag.clin-proxy-api-patient: "semver:~2"
   name: clin-proxy-api-patient
 spec:
   template:
@@ -68,7 +68,7 @@ kind: Deployment
 metadata:
   annotations:
     fluxcd.io/automated: 'true'
-    fluxcd.io/tag.app: "semver:~2"
+    fluxcd.io/tag.clin-proxy-api-hpo: "semver:~2"
   name: clin-proxy-api-hpo
 spec:
   template:

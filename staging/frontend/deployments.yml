@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   annotations:
     fluxcd.io/automated: 'true'
-    fluxcd.io/tag.app: "semver:~4"
+    fluxcd.io/tag.clin-frontend: "semver:~4"
   name: clin-frontend
 spec:
   template:
