@@ -4,7 +4,7 @@ kind: Deployment
 metadata:
   annotations:
     fluxcd.io/automated: "true"
-    fluxcd.io/tag.app: "semver:~1"
+    fluxcd.io/tag.clin-fhir-server: "semver:~1"
   name: clin-fhir-server
 spec:
   template:

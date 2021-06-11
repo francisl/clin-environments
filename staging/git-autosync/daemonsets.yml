@@ -5,7 +5,7 @@ metadata:
   name: git-autosync
   annotations:
     fluxcd.io/automated: "true"
-    fluxcd.io/tag.app: "semver:~1"
+    fluxcd.io/tag.git-autosync: "semver:~1"
 spec:
   selector:
     matchLabels:
