@@ -113,5 +113,5 @@ spec:
       $setElementOrder/containers:
       - name: clin-proxy-api-variant
       containers:
-      - image: ferlabcrsj/clin-proxy-api-variant-service:936d02ee8218175607299aa942eeb1ae33bf1368
+      - image: ferlabcrsj/clin-proxy-api-variant-service:2.1.3
         name: clin-proxy-api-variant
