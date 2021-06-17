@@ -1,3 +1,5 @@
+#!/bin/sh
+
 for INDEX in $(echo "hpo genes_re_002 variants_bt_bat1_re_004")
 do
     elasticdump \
