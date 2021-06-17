@@ -80,7 +80,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-proxy-api-gene
       containers:
-      - image: ferlabcrsj/clin-proxy-api-gene-service:2.1.2
+      - image: ferlabcrsj/clin-proxy-api-gene-service:2.1.3
         name: clin-proxy-api-gene
 ---
 apiVersion: apps/v1
@@ -108,7 +108,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-proxy-api-meta
       containers:
-      - image: ferlabcrsj/clin-proxy-api-meta-service:2.1.2
+      - image: ferlabcrsj/clin-proxy-api-meta-service:2.1.3
         name: clin-proxy-api-meta
 ---
 apiVersion: apps/v1
