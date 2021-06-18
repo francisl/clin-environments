@@ -87,7 +87,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-proxy-api-meta
       containers:
-      - image: ferlabcrsj/clin-proxy-api-meta-service:2.1.4
+      - image: ferlabcrsj/clin-proxy-api-meta-service:1179a70a3ffc931ce0da1d987304e8691c8902d6
         name: clin-proxy-api-meta
 ---
 apiVersion: apps/v1
