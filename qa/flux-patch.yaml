@@ -48,7 +48,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-frontend
       containers:
-      - image: ferlabcrsj/clin-frontend:c90b442be6077199ada31ad30b7d29d0a9b590a1
+      - image: ferlabcrsj/clin-frontend:aa325812a6c500e4f9ec7e4abc3b11715cfa783f
         name: clin-frontend
 ---
 apiVersion: apps/v1
@@ -87,7 +87,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-proxy-api-meta
       containers:
-      - image: ferlabcrsj/clin-proxy-api-meta-service:024af15115b86aff2c508e432c92202e37f53ce5
+      - image: ferlabcrsj/clin-proxy-api-meta-service:2.1.5
         name: clin-proxy-api-meta
 ---
 apiVersion: apps/v1
@@ -100,7 +100,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-proxy-api-patient
       containers:
-      - image: ferlabcrsj/clin-proxy-api-patient-service:024af15115b86aff2c508e432c92202e37f53ce5
+      - image: ferlabcrsj/clin-proxy-api-patient-service:2.1.5
         name: clin-proxy-api-patient
 ---
 apiVersion: apps/v1
