@@ -10,5 +10,5 @@ spec:
       $setElementOrder/containers:
       - name: clin-fhir-server
       containers:
-      - image: ferlabcrsj/clin-fhir-server:dc77788
+      - image: ferlabcrsj/clin-fhir-server:0a1bb60
         name: clin-fhir-server
