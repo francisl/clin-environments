@@ -52,7 +52,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-fhir-server
       containers:
-      - image: ferlabcrsj/clin-fhir-server:1.0.1
+      - image: ferlabcrsj/clin-fhir-server:1.0.2
         name: clin-fhir-server
 ---
 apiVersion: apps/v1
@@ -94,7 +94,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-proxy-api-hpo
       containers:
-      - image: ferlabcrsj/clin-proxy-api-hpo-service:2.1.5
+      - image: ferlabcrsj/clin-proxy-api-hpo-service:2.1.6
         name: clin-proxy-api-hpo
 ---
 apiVersion: apps/v1
