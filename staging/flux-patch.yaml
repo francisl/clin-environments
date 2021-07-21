@@ -122,7 +122,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-proxy-api-patient
       containers:
-      - image: ferlabcrsj/clin-proxy-api-patient-service:2.1.5
+      - image: ferlabcrsj/clin-proxy-api-patient-service:2.1.6
         name: clin-proxy-api-patient
 ---
 apiVersion: apps/v1
