@@ -7,7 +7,7 @@ namespace: clin-staging
 resources:
   - ../../common/fhir-server
   - ingresses.yml
-  - es-migration
+  #- es-migration
   #- backups
 
 patchesStrategicMerge:
