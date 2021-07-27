@@ -7,7 +7,7 @@ namespace: clin-staging
 resources:
   - ../../common/clin-proxy-api
   - ingresses.yml
-  - es-migration
+  #- es-migration
 
 patchesStrategicMerge:
   - configmaps.yml
