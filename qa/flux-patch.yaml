@@ -22,7 +22,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-fhir-console
       containers:
-      - image: ferlabcrsj/fhir-console:1.0.0
+      - image: ferlabcrsj/fhir-console:0c2fea2
         name: clin-fhir-console
 ---
 apiVersion: apps/v1
