@@ -17,3 +17,6 @@ data:
     keycloak.resource=__UNDEFINED__
     keycloak.public-client=true
     keycloak.principal-attribute=preferred_username
+    bio.keycloak.auth-server-url=__UNDEFINED__
+    bio.keycloak.realm=__UNDEFINED__
+    bio.keycloak.audience=__UNDEFINED__
