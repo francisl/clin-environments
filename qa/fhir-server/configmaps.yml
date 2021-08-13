@@ -7,6 +7,6 @@ data:
   SPRING_DATASOURCE_URL: jdbc:postgresql://clin-fhir-db-incoming:5432/fhir?sslmode=verify-full&sslrootcert=/opt/ca/ca.pem
   BIO_AUTH_SERVER_URL: https://auth.qa.cqdg.ferlab.bio/auth
   BIO_ELASTICSEARCH_PATIENT_INDEX: prescriptions
-  BIO_AUTH_ENABLED: false
+  BIO_AUTH_AUTHORIZATION_ENABLED: "false"
   HAPI_FHIR_SERVER_ADDRESS: https://fhir.qa.clin.ferlab.bio/fhir/
   JAVA_OPTS: "-server -Xmx2048m -Djava.net.preferIPv4Stack=true -Djava.awt.headless=true -XX:+UseContainerSupport"
