@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - backup.yml
   - prune-backups.yml
+  - restores
 
 configMapGenerator:
   - name: clin-fhir-server-s3-backups
@@ -19,8 +20,8 @@ configMapGenerator:
     options:
       disableNameSuffixHash: true
     literals:
-      - PGDATABASE=fhir
-      - PGHOST=clin-fhir-db-incoming
+      - PGDATABASE=clin_fhir_qa
+      - PGHOST=postgres-server-qa
   - name: clin-fhir-server-db-connection-tls
     options:
       disableNameSuffixHash: true
