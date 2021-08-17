@@ -6,7 +6,7 @@ metadata:
     app: clin-fhir-server
   name: clin-fhir-server
 spec:
-  replicas: 2
+  replicas: 1
   selector:
     matchLabels:
       app: clin-fhir-server
