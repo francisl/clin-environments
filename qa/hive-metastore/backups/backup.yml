@@ -1,0 +1,57 @@
+---
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: hive-metastore-backup
+spec:
+  schedule: "0 */4 * * *"
+  concurrencyPolicy: Forbid
+  startingDeadlineSeconds: 15
+  jobTemplate:
+    spec:
+      activeDeadlineSeconds: 1800
+      backoffLimit: 2
+      template:
+        spec:
+          imagePullSecrets:
+            - name: images-pull
+          restartPolicy: Never
+          containers:
+            - image: ferlabcrsj/postgres-backup:9bb43092f76e95f17cd09f03a27c65d84112a3cd
+              name: hive-metastore-backup
+              command:
+                - python3
+                - /opt/backup.py
+              env:
+                - name: PGUSER
+                  valueFrom:
+                    secretKeyRef:
+                      name: postgres-qa-hive-metastore-credentials
+                      key: username
+                - name: PGPASSWORD
+                  valueFrom:
+                    secretKeyRef:
+                      name: postgres-qa-hive-metastore-credentials
+                      key: password
+                - name: PGHOST
+                  value: postgres-server-qa
+                - name: PGDATABASE
+                  value: clin_hive_metastore_qa
+                - name: PGSSLMODE
+                  value: verify-full
+                - name: PGSSLROOTCERT
+                  value: /opt/ca/ca.pem
+              envFrom:
+                - secretRef:
+                    name: s3-hive-metastore-credentials
+                - configMapRef:
+                    name: hive-metastore-s3-backups
+              volumeMounts:
+                - name: ca-certificate
+                  mountPath: /opt/ca
+                  readOnly: true
+          volumes:
+            - name: ca-certificate
+              secret:
+                secretName: postgres-qa-ca-certificate
+                defaultMode: 0555

@@ -1,8 +1,7 @@
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
-  name: configure-keycloak-clin
-  namespace: terraform
+  name: configure-keycloak
 spec:
   schedule: "*/1 * * * *"
   concurrencyPolicy: Forbid
@@ -19,7 +18,7 @@ spec:
           volumes:
             - name: ssh-key
               secret:
-                secretName: clin-keycloak-terraform-github-ssh-key
+                secretName: keycloak-terraform-github-ssh-key
                 defaultMode: 0400
             - name: terraform-scripts
               configMap:
@@ -31,7 +30,7 @@ spec:
                 defaultMode: 0555
             - name: etcd-backend
               configMap:
-                name: keycloak-terraform-clin-qa-backend-file
+                name: keycloak-terraform-backend-file
                 defaultMode: 0555
             - name: etcd-ca-cert
               secret:
@@ -39,7 +38,7 @@ spec:
                 defaultMode: 0555
             - name: etcd-client-cert
               secret:
-                secretName: etcd-alpha-ops-terraform-keycloak-clin-qa-cert
+                secretName: etcd-alpha-ops-terraform-keycloak-cert
                 defaultMode: 0555
             - name: terraform
               emptyDir: {}
