@@ -10,7 +10,7 @@ spec:
       serviceAccountName: spark
       containers:
       - name: raw-normalized-vcf-etl
-        image: ferlabcrsj/spark:3.1.2
+        image: ferlabcrsj/spark:0edb597e24b5320a3363e0c07050736c325082b5
         env:
           - name: SPARK_CLASS
             value: bio.ferlab.clin.etl.vcf.ImportVcf
@@ -33,9 +33,9 @@ spec:
         command:
           - "/opt/client-entrypoint.sh"
         args:
+          - config/qa.conf
           - BAT0
           - all
-          - config/qa.conf
       restartPolicy: Never
       volumes:
         - name: spark-defaults
