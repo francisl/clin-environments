@@ -2,14 +2,14 @@
 apiVersion: batch/v1
 kind: Job
 metadata:
-  name: variant-tables-creation-etl-12
+  name: variant-tables-creation-etl
   namespace: spark
 spec:
   template:
     spec:
       serviceAccountName: spark
       containers:
-      - name: variant-tables-creation-etl-12
+      - name: variant-tables-creation-etl
         image: ferlabcrsj/spark:0edb597e24b5320a3363e0c07050736c325082b5
         env:
           - name: SPARK_CLASS
@@ -34,7 +34,7 @@ spec:
           - "/opt/client-entrypoint.sh"
         args:
           - config/qa.conf
-          - s3a://clin-qa-app-datalake/clin/variant_db/public
+          - s3a://clin-qa-app-datalake/public
       restartPolicy: Never
       volumes:
         - name: spark-defaults
