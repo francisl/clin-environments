@@ -7,7 +7,7 @@ data:
   KEYCLOAK_URL: https://auth.qa.cqdg.ferlab.bio/auth/
   KEYCLOAK_AUTH_CLIENT_ID: clin-acl
   KEYCLOAK_CONFIG: |
-    { "realm": "clin", "authServerUrl": "https://auth.qa.cqdg.ferlab.bio" }
+    { "realm": "clin", "authServerUrl": "https://auth.qa.clin.ferlab.bio" }
   ELASTIC_SERVICE: |
     {"host": "http://elasticsearch-workers:9200"}
   VARIANT_API_SERVICE: |

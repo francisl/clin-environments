@@ -27,4 +27,4 @@ spec:
             - name: HPO_SERVICE_URL
               value: https://hpo.qa.clin.ferlab.bio/hpo
             - name: KEYCLOAK_CONFIG
-              value: "{\\\"realm\\\": \\\"clin\\\", \\\"url\\\": \\\"https://auth.qa.cqdg.ferlab.bio/auth/\\\", \\\"clientId\\\": \\\"clin-client\\\", \\\"authClientId\\\": \\\"clin-acl\\\"}"
+              value: "{\\\"realm\\\": \\\"clin\\\", \\\"url\\\": \\\"https://auth.qa.clin.ferlab.bio/auth/\\\", \\\"clientId\\\": \\\"clin-client\\\", \\\"authClientId\\\": \\\"clin-acl\\\"}"
