@@ -6,6 +6,6 @@ metadata:
 data:
   AWS_ENDPOINT: https://s3.ops.cqdg.ferlab.bio
   AWS_BUCKET: clin-qa-app-clin-download
-  AUTH_ISSUER: https://auth.qa.cqdg.ferlab.bio/auth/realms/clin
-  AUTH_JWKS_URI: https://auth.qa.cqdg.ferlab.bio/auth/realms/clin/protocol/openid-connect/certs
+  AUTH_ISSUER: https://auth.qa.clin.ferlab.bio/auth/realms/clin
+  AUTH_JWKS_URI: https://auth.qa.clin.ferlab.bio/auth/realms/clin/protocol/openid-connect/certs
   AUTH_AUDIENCE: account

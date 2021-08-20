@@ -12,11 +12,11 @@ data:
     hapi.fhir.tester[0].refuse_to_fetch_third_party_urls=false
     hapi.fhir.tester[0].fhir_version=R4
     authorized_roles=clin_administrator
-    keycloak.auth-server-url=https://auth.qa.cqdg.ferlab.bio/auth/
+    keycloak.auth-server-url=https://auth.qa.clin.ferlab.bio/auth/
     keycloak.realm=clin
     keycloak.resource=fhir-console
     keycloak.public-client=true
     keycloak.principal-attribute=preferred_username
-    bio.keycloak.auth-server-url=https://auth.qa.cqdg.ferlab.bio/auth/
+    bio.keycloak.auth-server-url=https://auth.qa.clin.ferlab.bio/auth/
     bio.keycloak.realm=clin
     bio.keycloak.audience=clin-acl
