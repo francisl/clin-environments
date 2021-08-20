@@ -4,6 +4,7 @@ kind: Kustomization
 resources:
   - backup.yml
   - prune-backups.yml
+  - restores
 
 configMapGenerator:
   - name: hive-metastore-s3-backups
