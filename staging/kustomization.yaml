@@ -2,12 +2,12 @@ apiVersion: kustomize.config.k8s.io/v1beta1
 kind: Kustomization
 
 resources:
-  - certificate
-  - git-autosync
-  - keycloak
-  - terraform
-  - fhir-server
-  - fhir-console
-  - proxy-api
-  - ferload
-  - frontend
+  #- certificate
+  #- git-autosync
+  #- keycloak
+  #- terraform
+  #- fhir-server
+  #- fhir-console
+  #- proxy-api
+  #- ferload
+  #- frontend
