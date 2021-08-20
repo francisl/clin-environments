@@ -4,7 +4,7 @@ kind: ConfigMap
 metadata:
   name: clin-proxy-config
 data:
-  KEYCLOAK_URL: https://auth.qa.cqdg.ferlab.bio/auth/
+  KEYCLOAK_URL: https://auth.qa.clin.ferlab.bio/auth/
   KEYCLOAK_AUTH_CLIENT_ID: clin-acl
   KEYCLOAK_CONFIG: |
     { "realm": "clin", "authServerUrl": "https://auth.qa.clin.ferlab.bio" }
