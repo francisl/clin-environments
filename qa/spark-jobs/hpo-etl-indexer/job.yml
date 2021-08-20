@@ -33,7 +33,7 @@ spec:
           - "/opt/client-entrypoint.sh"
         args:
           - s3a://clin-qa-app-datalake/public/hpo
-          - hpo
+          - hpo_all
           - "20210819_v1"
           - s3a://clin-qa-app-datalake/jobs/templates/hpo.json
       restartPolicy: Never
