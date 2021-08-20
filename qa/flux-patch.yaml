@@ -3,6 +3,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: clin-ferload
+  namespace: clin-qa
 spec:
   template:
     spec:
@@ -16,6 +17,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: clin-fhir-console
+  namespace: clin-qa
 spec:
   template:
     spec:
@@ -29,6 +31,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: clin-fhir-server
+  namespace: clin-qa
 spec:
   template:
     spec:
@@ -42,6 +45,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: clin-frontend
+  namespace: clin-qa
 spec:
   template:
     spec:
@@ -55,6 +59,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: clin-proxy-api-gene
+  namespace: clin-qa
 spec:
   template:
     spec:
@@ -68,6 +73,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: clin-proxy-api-hpo
+  namespace: clin-qa
 spec:
   template:
     spec:
@@ -81,6 +87,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: clin-proxy-api-meta
+  namespace: clin-qa
 spec:
   template:
     spec:
@@ -94,6 +101,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: clin-proxy-api-patient
+  namespace: clin-qa
 spec:
   template:
     spec:
@@ -107,6 +115,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: clin-proxy-api-variant
+  namespace: clin-qa
 spec:
   template:
     spec:
