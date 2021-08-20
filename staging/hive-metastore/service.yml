@@ -8,6 +8,6 @@ spec:
   - port: 9083
     protocol: TCP
     targetPort: 9083
-    nodePort: 30083
+    nodePort: 30084
   selector:
     name: hive-metastore
