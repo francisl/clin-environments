@@ -1,0 +1,50 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: hive-metastore-postgres-qa-server-db-restore
+spec:
+  backoffLimit: 1
+  activeDeadlineSeconds: 600
+  template:
+    spec:
+      restartPolicy: Never
+      containers:
+      - image: ferlabcrsj/postgres-backup:9bb43092f76e95f17cd09f03a27c65d84112a3cd
+        name: hive-metastore-postgres-qa-server-db-restore
+        env:
+          - name: PGUSER
+            valueFrom:
+              secretKeyRef:
+                name: postgres-qa-hive-metastore-credentials
+                key: username
+          - name: PGPASSWORD
+            valueFrom:
+              secretKeyRef:
+                name: postgres-qa-hive-metastore-credentials
+                key: password
+          - name: PGHOST
+            value: postgres-server-qa
+          - name: PGDATABASE
+            value: clin_hive_metastore_qa
+          - name: PGSSLMODE
+            value: verify-full
+          - name: PGSSLROOTCERT
+            value: /opt/ca/ca.pem
+        envFrom:
+          - secretRef:
+              name: s3-hive-metastore-credentials
+          - configMapRef:
+              name: hive-metastore-s3-backups
+        command:
+          - python3
+          - /opt/restore.py
+        volumeMounts:
+          - name: ca-certificate
+            mountPath: /opt/ca
+            readOnly: true
+      volumes:
+        - name: ca-certificate
+          secret:
+            secretName: postgres-qa-ca-certificate
+            defaultMode: 0555
