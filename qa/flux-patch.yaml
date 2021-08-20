@@ -1,0 +1,117 @@
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clin-ferload
+spec:
+  template:
+    spec:
+      $setElementOrder/containers:
+      - name: clin-ferload
+      containers:
+      - image: ferlabcrsj/ferload:ecc648f
+        name: clin-ferload
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clin-fhir-console
+spec:
+  template:
+    spec:
+      $setElementOrder/containers:
+      - name: clin-fhir-console
+      containers:
+      - image: ferlabcrsj/fhir-console:0c2fea2
+        name: clin-fhir-console
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clin-fhir-server
+spec:
+  template:
+    spec:
+      $setElementOrder/containers:
+      - name: clin-fhir-server
+      containers:
+      - image: ferlabcrsj/clin-fhir-server:1.1.0
+        name: clin-fhir-server
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clin-frontend
+spec:
+  template:
+    spec:
+      $setElementOrder/containers:
+      - name: clin-frontend
+      containers:
+      - image: ferlabcrsj/clin-frontend:ca82d9b542d868226e6fe35f63bffbd6392d5cf4
+        name: clin-frontend
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clin-proxy-api-gene
+spec:
+  template:
+    spec:
+      $setElementOrder/containers:
+      - name: clin-proxy-api-gene
+      containers:
+      - image: ferlabcrsj/clin-proxy-api-gene-service:2.1.6
+        name: clin-proxy-api-gene
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clin-proxy-api-hpo
+spec:
+  template:
+    spec:
+      $setElementOrder/containers:
+      - name: clin-proxy-api-hpo
+      containers:
+      - image: ferlabcrsj/clin-proxy-api-hpo-service:2.1.6
+        name: clin-proxy-api-hpo
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clin-proxy-api-meta
+spec:
+  template:
+    spec:
+      $setElementOrder/containers:
+      - name: clin-proxy-api-meta
+      containers:
+      - image: ferlabcrsj/clin-proxy-api-meta-service:2.1.6
+        name: clin-proxy-api-meta
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clin-proxy-api-patient
+spec:
+  template:
+    spec:
+      $setElementOrder/containers:
+      - name: clin-proxy-api-patient
+      containers:
+      - image: ferlabcrsj/clin-proxy-api-patient-service:2.1.6
+        name: clin-proxy-api-patient
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: clin-proxy-api-variant
+spec:
+  template:
+    spec:
+      $setElementOrder/containers:
+      - name: clin-proxy-api-variant
+      containers:
+      - image: ferlabcrsj/clin-proxy-api-variant-service:2.1.6
+        name: clin-proxy-api-variant
