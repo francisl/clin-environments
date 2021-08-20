@@ -1,0 +1,33 @@
+---
+apiVersion: batch/v1
+kind: Job
+metadata:
+  name: genomic-files-import
+spec:
+  template:
+    spec:
+      containers:
+      - name: genomic-files-import
+        image: ferlabcrsj/clin-pipelines:de4ece0
+        env:
+          - name: AWS_ACCESS_KEY
+            valueFrom:
+              secretKeyRef:
+                name: s3-files-processing-credentials
+                key: S3_ACCESS_KEY
+          - name: AWS_SECRET_KEY
+            valueFrom:
+              secretKeyRef:
+                name: s3-files-processing-credentials
+                key: S3_SECRET_KEY
+        envFrom:
+          - secretRef:
+              name: keycloak-files-processing-credentials
+          - configMapRef:
+              name: genomic-files-import
+        args:
+          - bio.ferlab.clin.etl.FileImport
+          - 201106_A00516_0169_AHFM3HDSXY
+          - "true"
+      restartPolicy: Never
+  backoffLimit: 4
