@@ -7,7 +7,7 @@ metadata:
     name: spark
 data:
   spark-ceph.conf: |
-    spark.app.name=variant-etl
+    spark.app.name=raw-normalized-vcf-etl
     spark.executor.instances=20
     spark.kubernetes.container.image=ferlabcrsj/spark:0edb597e24b5320a3363e0c07050736c325082b5
     spark.sql.shuffle.partitions=500

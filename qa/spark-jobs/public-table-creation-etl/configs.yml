@@ -2,13 +2,13 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: variant-tables-creation-etl
+  name: public-table-creation-etl
   labels:
     name: spark
 data:
   spark-ceph.conf: |
-    spark.app.name=variant-tables-creation-etl
-    spark.executor.instances=20
+    spark.app.name=public-table-creation-etl
+    spark.executor.instances=5
     spark.kubernetes.container.image=ferlabcrsj/spark:0edb597e24b5320a3363e0c07050736c325082b5
     spark.sql.shuffle.partitions=500
     spark.sql.extensions=io.delta.sql.DeltaSparkSessionExtension
