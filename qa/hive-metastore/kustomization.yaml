@@ -4,10 +4,10 @@ kind: Kustomization
 namespace: clin-qa
 
 resources:
-  - ../cqdg-orchestrations/hive-metastore
+  #- ../cqdg-orchestrations/hive-metastore
   - configs.yml
   - backups
 
 patchesStrategicMerge:
-  - deployments.yml
+  #- deployments.yml
   - service.yml
