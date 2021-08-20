@@ -11,10 +11,10 @@ metadata:
 spec:
   tls:
     - hosts:
-      - notebook.staging.cqdg.ferlab.bio
+      - notebook.staging.clin.ferlab.bio
       secretName: letsencrypt-certificate
   rules:
-    - host: notebook.staging.cqdg.ferlab.bio
+    - host: notebook.staging.clin.ferlab.bio
       http:
         paths:
         - path: /
