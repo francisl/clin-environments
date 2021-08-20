@@ -1,7 +1,6 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  namespace: spark
   labels:
     run: spark-sql-exec
   name: spark-sql-exec

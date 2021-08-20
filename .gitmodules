@@ -4,3 +4,6 @@
 [submodule "staging/cqdg-orchestrations"]
 	path = staging/cqdg-orchestrations
 	url = https://github.com/Ferlab-Ste-Justine/cqdg-orchestrations.git
+[submodule "qa/cqdg-orchestrations"]
+	path = qa/cqdg-orchestrations
+	url = https://github.com/Ferlab-Ste-Justine/cqdg-orchestrations.git

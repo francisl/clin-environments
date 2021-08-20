@@ -9,6 +9,9 @@ jobs:
     container: fluxcd/flux:1.21.0
     steps:
     - uses: actions/checkout@v2
+    - name: Get git submodules
+      run: git submodule init && git submodule update
+      working-directory: qa
     - name: Kustomize Build
       run: kustomize build .
       working-directory: qa

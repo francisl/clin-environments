@@ -3,7 +3,6 @@ apiVersion: batch/v1
 kind: Job
 metadata:
   name: raw-normamlized-fhir-etl
-  namespace: spark
 spec:
   template:
     spec:

@@ -1,0 +1,52 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    run: spark-sql-exec
+  name: spark-sql-exec
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: spark-sql-exec
+  template:
+    metadata:
+      labels:
+        app: spark-sql-exec
+    spec:
+      serviceAccountName: spark
+      imagePullSecrets:
+        - name: images-pull
+      containers:
+      - name: spark-sql-exec
+        image: ferlabcrsj/spark:3.1.2
+        env:
+          - name: SPARK_CLASS
+            value: bio.ferlab.clin.etl.ImportVcf
+          - name: SPARK_JAR
+            value: s3a://clin-qa-app-datalake/spark/clin-variant-etl.jar
+          - name: SPARK_CLIENT_POD_NAME
+            valueFrom:
+              fieldRef:
+                fieldPath: metadata.name
+        volumeMounts:
+          - name: spark-defaults
+            mountPath: /opt/spark-configs/defaults
+            readOnly: true
+          - name: spark-sql-exec
+            mountPath: /opt/spark-configs/spark-sql-exec
+            readOnly: true
+          - name: s3-credentials
+            mountPath: /opt/spark-configs/s3-credentials
+            readOnly: true
+        command: ["sleep", "infinity"]
+      volumes:
+        - name: spark-defaults
+          configMap:
+            name: spark-defaults
+        - name: spark-sql-exec
+          configMap:
+            name: spark-sql-exec
+        - name: s3-credentials
+          secret:
+            secretName: s3-credentials
