@@ -18,3 +18,4 @@ spec:
     - fhir.qa.clin.ferlab.bio
     - fhir-console.qa.clin.ferlab.bio
     - ferload.qa.clin.ferlab.bio
+    - notebook.qa.clin.ferlab.bio
