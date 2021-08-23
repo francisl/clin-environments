@@ -33,7 +33,7 @@ spec:
             - "/opt/client-entrypoint.sh"
           args:
             - config/qa.conf
-            - BAT0
+            - 201106_A00516_0169_AHFM3HDSXY
             - all
       restartPolicy: Never
       volumes:

@@ -13,4 +13,3 @@ data:
     spark.hadoop.fs.s3a.endpoint=https://s3.ops.cqdg.ferlab.bio
     spark.sql.shuffle.partitions=500
     spark.executor.memory=8g
-
