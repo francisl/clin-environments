@@ -1,7 +1,9 @@
 apiVersion: cert-manager.io/v1
-kind: ClusterIssuer
+kind: Issuer
 metadata:
   name: letsencrypt
 spec:
   acme:
     email: evallee@ferlab.bio
+    privateKeySecretRef:
+      name: letsencrypt-staging-account-key
