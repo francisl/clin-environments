@@ -29,11 +29,11 @@ spec:
                 secretKeyRef:
                   name: postgres-qa-fhir-credentials
                   key: password
-          envFrom:
-            - secretRef:
-                name: fhir-keycloak-credentials
-            - configMapRef:
-                name: clin-fhir-server
+            - name: BIO_AUTH_AUTHORIZATION_CLIENT_SECRET
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-client-acl
+                  key: client-secret
           volumeMounts:
             - name: postgres-ca-certificate
               mountPath: /opt/ca

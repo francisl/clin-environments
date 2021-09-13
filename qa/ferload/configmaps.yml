@@ -12,6 +12,5 @@ data:
   AUTH_URL: https://auth.qa.clin.ferlab.bio/auth/
   AUTH_REALM: clin
   AUTH_CLIENT_ID: clin-acl
-  AUTH_SECRET_KEY:
   AUTH_RESOURCES_POLICY_GLOBAL_NAME: download
   AUTH_PUBLIC_CLIENT_ID: clin-client
