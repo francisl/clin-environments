@@ -5,3 +5,4 @@ configMapGenerator:
   - name: clin-ferload
     literals:
       - AWS_PATH_ACCESS_STYLE=true
+      - AUTH_RESOURCES_POLICY_GLOBAL_NAME=download

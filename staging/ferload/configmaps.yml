@@ -9,3 +9,7 @@ data:
   AUTH_ISSUER: https://auth.staging.clin.ferlab.bio/auth/realms/clin
   AUTH_JWKS_URI: https://auth.staging.clin.ferlab.bio/auth/realms/clin/protocol/openid-connect/certs
   AUTH_AUDIENCE: account
+  AUTH_URL: https://auth.qa.clin.ferlab.bio/auth/
+  AUTH_REALM: clin
+  AUTH_CLIENT_ID: clin-acl
+  AUTH_PUBLIC_CLIENT_ID: clin-client

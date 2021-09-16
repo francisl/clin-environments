@@ -30,3 +30,8 @@ spec:
                 secretKeyRef:
                   name: clin-ferload-play-secret
                   key: CLIN_FERLOAD_PLAY_SECRET
+            - name: AUTH_SECRET_KEY
+              valueFrom:
+                secretKeyRef:
+                  name: keycloak-client-acl
+                  key: client-secret
