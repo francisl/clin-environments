@@ -8,7 +8,7 @@ data:
   AWS_BUCKET: clin-qa-app-clin-download
   AUTH_ISSUER: https://auth.qa.clin.ferlab.bio/auth/realms/clin
   AUTH_JWKS_URI: https://auth.qa.clin.ferlab.bio/auth/realms/clin/protocol/openid-connect/certs
-  AUTH_AUDIENCE: account
+  AUTH_AUDIENCE: clin-acl
   AUTH_URL: https://auth.qa.clin.ferlab.bio/auth/
   AUTH_REALM: clin
   AUTH_CLIENT_ID: clin-acl
