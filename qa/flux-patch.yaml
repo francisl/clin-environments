@@ -24,7 +24,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-ferload
       containers:
-      - image: ferlabcrsj/ferload:1.1.0
+      - image: ferlabcrsj/ferload:c86c241
         name: clin-ferload
 ---
 apiVersion: apps/v1
