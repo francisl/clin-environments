@@ -24,7 +24,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-ferload
       containers:
-      - image: ferlabcrsj/ferload:1.1.0
+      - image: ferlabcrsj/ferload:1.1.1
         name: clin-ferload
 ---
 apiVersion: apps/v1
@@ -38,7 +38,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-fhir-console
       containers:
-      - image: ferlabcrsj/fhir-console:1.0.0
+      - image: ferlabcrsj/fhir-console:1.0.1
         name: clin-fhir-console
 ---
 apiVersion: apps/v1
