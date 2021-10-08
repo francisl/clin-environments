@@ -38,7 +38,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-fhir-console
       containers:
-      - image: ferlabcrsj/fhir-console:8e2a42f
+      - image: ferlabcrsj/fhir-console:1.0.1
         name: clin-fhir-console
 ---
 apiVersion: apps/v1
@@ -52,7 +52,7 @@ spec:
       $setElementOrder/containers:
       - name: clin-fhir-server
       containers:
-      - image: ferlabcrsj/clin-fhir-server:a370774
+      - image: ferlabcrsj/clin-fhir-server:1.2.0
         name: clin-fhir-server
 ---
 apiVersion: apps/v1
